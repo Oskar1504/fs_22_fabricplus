@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc descVersion="62">
+	<author>python script by oskar1504</author>
+	<version>1.0.0.0</version>
+	<title>
+		<en>Various fabrics 2x production_rate</en>
+	</title>
+	<description>
+		<en><![CDATA[
+Various fabrics 2x production_rate
+Changed following .xml files:
+greenhouseLarge.xml
+greenhouseMedium.xml
+greenhouseSmall.xml
+bakeryEU.xml
+bakeryUS.xml
+carpenterEU.xml
+carpenterUS.xml
+dairyEU.xml
+dairyUS.xml
+grainMill.xml
+oilPlant.xml
+raisinFactory.xml
+spinneryEU.xml
+spinneryUS.xml
+sugarMill.xml
+alpsBGA.xml
+cheeseFactory.xml
+sellingStationMill01.xml
+sellingStationWool.xml
+sellingStationBakery.xml
+sellingStationCheeseDairy.xml
+sellingStationGrainMill.xml
+sellingStationWool.xml
+productionPointGrainMill.xml
+bga1mw.xml
+bga250kw.xml
+bga500kw.xml
+bga99kw.xml
+]]></en>
+	</description>
+	<iconFilename>$data/placeables/lizard/productionpoints/oilPlant/store_oilPlant.dds</iconFilename>
+	<multiplayer supported="true"></multiplayer>
+	<brands>
+		<brand name="FABRICPLUS" title="Fabric+" image="modLogo.dds"></brand>
+	</brands>
+	<storeItems>
+		<storeItem xmlFilename="greenhouseLarge.xml"></storeItem>
+		<storeItem xmlFilename="greenhouseMedium.xml"></storeItem>
+		<storeItem xmlFilename="greenhouseSmall.xml"></storeItem>
+		<storeItem xmlFilename="bakeryEU.xml"></storeItem>
+		<storeItem xmlFilename="bakeryUS.xml"></storeItem>
+		<storeItem xmlFilename="carpenterEU.xml"></storeItem>
+		<storeItem xmlFilename="carpenterUS.xml"></storeItem>
+		<storeItem xmlFilename="dairyEU.xml"></storeItem>
+		<storeItem xmlFilename="dairyUS.xml"></storeItem>
+		<storeItem xmlFilename="grainMill.xml"></storeItem>
+		<storeItem xmlFilename="oilPlant.xml"></storeItem>
+		<storeItem xmlFilename="raisinFactory.xml"></storeItem>
+		<storeItem xmlFilename="spinneryEU.xml"></storeItem>
+		<storeItem xmlFilename="spinneryUS.xml"></storeItem>
+		<storeItem xmlFilename="sugarMill.xml"></storeItem>
+		<storeItem xmlFilename="alpsBGA.xml"></storeItem>
+		<storeItem xmlFilename="cheeseFactory.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationMill01.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationWool.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationBakery.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationCheeseDairy.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationGrainMill.xml"></storeItem>
+		<storeItem xmlFilename="sellingStationWool.xml"></storeItem>
+		<storeItem xmlFilename="productionPointGrainMill.xml"></storeItem>
+		<storeItem xmlFilename="bga1mw.xml"></storeItem>
+		<storeItem xmlFilename="bga250kw.xml"></storeItem>
+		<storeItem xmlFilename="bga500kw.xml"></storeItem>
+		<storeItem xmlFilename="bga99kw.xml"></storeItem>
+	</storeItems>
+</modDesc>

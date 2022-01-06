@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<placeable type="productionPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+	<storeData>
+		<name>$l10n_station_fr_bakery</name>
+		<image>$data/store/store_empty.png</image>
+		<price>50000</price>
+		<canBeSold>false</canBeSold>
+		<showInStore>false</showInStore>
+		<lifetime>1000</lifetime>
+		<rotation>0</rotation>
+		<brand>FABRICPLUS</brand>
+		<species>placeable</species>
+		<category>productionPoints</category>
+		<vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+		<indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+		<textureMemoryUsage>0</textureMemoryUsage>
+		<instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+		<instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+	</storeData>
+	<base>
+		<filename>$data/placeables/mapFR/sellingStationBakery/sellingStationBakery.i3d</filename>
+		<canBeRenamed>false</canBeRenamed>
+	</base>
+	<placement></placement>
+	<clearAreas></clearAreas>
+	<leveling></leveling>
+	<indoorAreas></indoorAreas>
+	<tipOcclusionUpdateAreas>
+		<tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End"></tipOcclusionUpdateArea>
+	</tipOcclusionUpdateAreas>
+	<ai>
+		<updateAreas></updateAreas>
+	</ai>
+	<infoTrigger triggerNode="infoTrigger"></infoTrigger>
+	<hotspots>
+		<hotspot type="PRODUCTION_POINT" linkNode="unloadTriggerMarker" teleportNode="teleportNode"></hotspot>
+	</hotspots>
+	<triggerMarkers>
+		<triggerMarker node="warningStripes" adjustToGround="false"></triggerMarker>
+		<triggerMarker node="playerTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="WRENCH" adjustToGround="false"></triggerMarker>
+		<triggerMarker node="unloadTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="false"></triggerMarker>
+	</triggerMarkers>
+	<productionPoint>
+		<productions>
+			<production id="bread" name="$l10n_fillType_bread" cyclesPerHour="4" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="FLOUR" amount="90"></input>
+				</inputs>
+				<outputs>
+					<output fillType="BREAD" amount="45"></output>
+				</outputs>
+			</production>
+			<production id="cake" name="$l10n_fillType_cake" cyclesPerHour="16" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="FLOUR" amount="2"></input>
+					<input fillType="SUGAR" amount="2"></input>
+					<input fillType="MILK" amount="2"></input>
+					<input fillType="EGG" amount="2"></input>
+					<input fillType="BUTTER" amount="2"></input>
+					<input fillType="STRAWBERRY" amount="2"></input>
+				</inputs>
+				<outputs>
+					<output fillType="CAKE" amount="5"></output>
+				</outputs>
+			</production>
+		</productions>
+		<sellingStation node="sellingStation" appearsOnStats="true" supportsExtension="false" litersForFullPriceDrop="200000" fullPriceRecoverHours="48">
+			<unloadTrigger exactFillRootNode="unloadTrigger" fillTypes="FLOUR SUGAR MILK EGG BUTTER STRAWBERRY"></unloadTrigger>
+		</sellingStation>
+		<palletSpawner node="palletSpawner">
+			<spawnPlaces>
+				<spawnPlace startNode="palletSpawnerArea1Start"></spawnPlace>
+				<spawnPlace startNode="palletSpawnerArea2Start"></spawnPlace>
+			</spawnPlaces>
+		</palletSpawner>
+		<storage isExtension="false" fillLevelSyncThreshold="50">
+			<capacity fillType="FLOUR" capacity="65000"></capacity>
+			<capacity fillType="SUGAR" capacity="7000"></capacity>
+			<capacity fillType="MILK" capacity="7000"></capacity>
+			<capacity fillType="EGG" capacity="7000"></capacity>
+			<capacity fillType="BUTTER" capacity="7000"></capacity>
+			<capacity fillType="STRAWBERRY" capacity="7000"></capacity>
+			<capacity fillType="BREAD" capacity="7000"></capacity>
+			<capacity fillType="CAKE" capacity="7000"></capacity>
+		</storage>
+		<playerTrigger node="playerTrigger"></playerTrigger>
+		<sounds>
+			<idle template="bakeryIdle" linkNode="soundNode"></idle>
+			<active template="bakeryWork" linkNode="soundNode"></active>
+		</sounds>
+	</productionPoint>
+	<i3dMappings>
+		<i3dMapping id="tipOcclusionUpdateArea1Start" node="0&gt;0|0"></i3dMapping>
+		<i3dMapping id="tipOcclusionUpdateArea1End" node="0&gt;0|0|0"></i3dMapping>
+		<i3dMapping id="infoTrigger" node="0&gt;1"></i3dMapping>
+		<i3dMapping id="warningStripes" node="0&gt;3"></i3dMapping>
+		<i3dMapping id="playerTrigger" node="0&gt;4|0"></i3dMapping>
+		<i3dMapping id="playerTriggerMarker" node="0&gt;4|1"></i3dMapping>
+		<i3dMapping id="soundNode" node="0&gt;4|2"></i3dMapping>
+		<i3dMapping id="sellingStation" node="0&gt;5"></i3dMapping>
+		<i3dMapping id="unloadTrigger" node="0&gt;5|0"></i3dMapping>
+		<i3dMapping id="unloadTriggerMarker" node="0&gt;5|0|0"></i3dMapping>
+		<i3dMapping id="teleportNode" node="0&gt;5|1"></i3dMapping>
+		<i3dMapping id="palletSpawner" node="0&gt;6"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea2Start" node="0&gt;6|0"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea2End" node="0&gt;6|0|0"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea1Start" node="0&gt;6|1"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea1End" node="0&gt;6|1|0"></i3dMapping>
+	</i3dMappings>
+</placeable>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<placeable type="productionPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+	<storeData>
+		<name>$l10n_shopItem_mapAlpine_biogasPlant</name>
+		<image>$data/store/store_empty.png</image>
+		<price>435000</price>
+		<dailyUpkeep>120</dailyUpkeep>
+		<lifetime>1000</lifetime>
+		<rotation>0</rotation>
+		<brand>FABRICPLUS</brand>
+		<species>placeable</species>
+		<canBeSold>false</canBeSold>
+		<showInStore>false</showInStore>
+		<category>silos</category>
+		<vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+		<indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+		<textureMemoryUsage>0</textureMemoryUsage>
+		<instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+		<instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+	</storeData>
+	<base>
+		<filename>$data/placeables/mapAlpine/bga/alpsBGA.i3d</filename>
+		<buysFarmland>true</buysFarmland>
+	</base>
+	<placement useRandomYRotation="false" useManualYRotation="true"></placement>
+	<clearAreas></clearAreas>
+	<leveling></leveling>
+	<indoorAreas></indoorAreas>
+	<ai>
+		<updateAreas>
+			<updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End"></updateArea>
+		</updateAreas>
+	</ai>
+	<infoTrigger triggerNode="infoTrigger"></infoTrigger>
+	<dynamicallyLoadedParts>
+		<dynamicallyLoadedPart filename="$data/placeables/mapAlpine/bga/props.i3d" node="0" linkNode="propsLinkNode"></dynamicallyLoadedPart>
+	</dynamicallyLoadedParts>
+	<triggerMarkers>
+		<triggerMarker node="unloadTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="false"></triggerMarker>
+		<triggerMarker node="unloadTriggerLiquidManureMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="true"></triggerMarker>
+		<triggerMarker node="loadTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="LOAD" adjustToGround="true"></triggerMarker>
+		<triggerMarker node="playerTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="WRENCH" adjustToGround="true"></triggerMarker>
+	</triggerMarkers>
+	<hotspots>
+		<hotspot type="PRODUCTION_POINT" linkNode="unloadTriggerMarker" teleportNode="teleportNode"></hotspot>
+	</hotspots>
+	<productionPoint>
+		<productions>
+			<production id="biogas" name="$l10n_fillType_silage" cyclesPerHour="2" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="SILAGE" amount="840"></input>
+				</inputs>
+				<outputs>
+					<output fillType="ELECTRICCHARGE" amount="756" sellDirectly="true"></output>
+					<output fillType="METHANE" amount="1" sellDirectly="true"></output>
+					<output fillType="DIGESTATE" amount="252"></output>
+				</outputs>
+			</production>
+			<production id="biogasLiquidManure" name="$l10n_fillType_liquidManure" cyclesPerHour="2" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="LIQUIDMANURE" amount="200"></input>
+				</inputs>
+				<outputs>
+					<output fillType="ELECTRICCHARGE" amount="180" sellDirectly="true"></output>
+					<output fillType="METHANE" amount="1" sellDirectly="true"></output>
+					<output fillType="DIGESTATE" amount="60"></output>
+				</outputs>
+			</production>
+			<production id="biogasManure" name="$l10n_fillType_manure" cyclesPerHour="2" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="MANURE" amount="200"></input>
+				</inputs>
+				<outputs>
+					<output fillType="ELECTRICCHARGE" amount="180" sellDirectly="true"></output>
+					<output fillType="METHANE" amount="1" sellDirectly="true"></output>
+					<output fillType="DIGESTATE" amount="60"></output>
+				</outputs>
+			</production>
+			<production id="biogasSugarbeetCut" name="$l10n_fillType_sugarBeetCut" cyclesPerHour="2" costsPerActiveHour="2.5">
+				<inputs>
+					<input fillType="SUGARBEET_CUT" amount="100"></input>
+				</inputs>
+				<outputs>
+					<output fillType="ELECTRICCHARGE" amount="90" sellDirectly="true"></output>
+					<output fillType="METHANE" amount="1" sellDirectly="true"></output>
+					<output fillType="DIGESTATE" amount="30"></output>
+				</outputs>
+			</production>
+		</productions>
+		<sellingStation node="bunker" appearsOnStats="true" supportsExtension="true">
+			<unloadTrigger exactFillRootNode="unloadTrigger" fillTypes="SILAGE MANURE SUGARBEET_CUT"></unloadTrigger>
+			<unloadTrigger fillTypes="SILAGE">
+				<baleTrigger triggerNode="baleTrigger"></baleTrigger>
+			</unloadTrigger>
+			<unloadTrigger exactFillRootNode="unloadTriggerInFront" fillTypes="SILAGE MANURE SUGARBEET_CUT" aiNode="aiUnloadNodeBunker"></unloadTrigger>
+			<unloadTrigger fillTypes="SILAGE" aiNode="aiUnloadNodeBunker">
+				<baleTrigger triggerNode="baleTriggerInFront"></baleTrigger>
+			</unloadTrigger>
+			<unloadTrigger exactFillRootNode="unloadTriggerLiquidManure" fillTypes="LIQUIDMANURE" aiNode="unloadTriggerLiquidManureAiNode"></unloadTrigger>
+		</sellingStation>
+		<loadingStation>
+			<loadTrigger triggerNode="loadTrigger" fillTypes="DIGESTATE" aiNode="loadTriggerAiNode"></loadTrigger>
+		</loadingStation>
+		<storage isExtension="false" fillLevelSyncThreshold="100">
+			<capacity fillType="SILAGE" capacity="30000"></capacity>
+			<capacity fillType="MANURE" capacity="7200"></capacity>
+			<capacity fillType="SUGARBEET_CUT" capacity="3600"></capacity>
+			<capacity fillType="LIQUIDMANURE" capacity="30000"></capacity>
+			<capacity fillType="DIGESTATE" capacity="1900000"></capacity>
+			<fillPlane fillType="SILAGE" node="bunkerFillPlane" minY="0" maxY="1.178"></fillPlane>
+		</storage>
+		<playerTrigger node="playerTrigger"></playerTrigger>
+		<sounds>
+			<idle template="dairyIdle" linkNode="0&gt;" outerRadius="50"></idle>
+			<active template="dairyWork" linkNode="0&gt;" outerRadius="50"></active>
+		</sounds>
+	</productionPoint>
+	<i3dMappings>
+		<i3dMapping id="bunker" node="1&gt;0"></i3dMapping>
+		<i3dMapping id="bunkerFillPlane" node="1&gt;0|0"></i3dMapping>
+		<i3dMapping id="unloadTrigger" node="1&gt;0|1"></i3dMapping>
+		<i3dMapping id="baleTrigger" node="1&gt;0|2"></i3dMapping>
+		<i3dMapping id="unloadTriggerMarker" node="1&gt;0|3"></i3dMapping>
+		<i3dMapping id="unloadTriggerInFront" node="1&gt;1|0"></i3dMapping>
+		<i3dMapping id="baleTriggerInFront" node="1&gt;1|1"></i3dMapping>
+		<i3dMapping id="aiUnloadNodeBunker" node="1&gt;1|2"></i3dMapping>
+		<i3dMapping id="playerTrigger" node="1&gt;2"></i3dMapping>
+		<i3dMapping id="playerTriggerMarker" node="1&gt;2|0"></i3dMapping>
+		<i3dMapping id="loadTrigger" node="1&gt;3|0"></i3dMapping>
+		<i3dMapping id="loadTriggerMarker" node="1&gt;3|1"></i3dMapping>
+		<i3dMapping id="loadTriggerAiNode" node="1&gt;3|2"></i3dMapping>
+		<i3dMapping id="unloadTriggerLiquidManure" node="1&gt;4"></i3dMapping>
+		<i3dMapping id="unloadTriggerLiquidManureMarker" node="1&gt;5"></i3dMapping>
+		<i3dMapping id="unloadTriggerLiquidManureAiNode" node="1&gt;6"></i3dMapping>
+		<i3dMapping id="teleportNode" node="1&gt;7"></i3dMapping>
+		<i3dMapping id="infoTrigger" node="1&gt;8"></i3dMapping>
+		<i3dMapping id="tipOcclusionUpdateArea1Start" node="1&gt;9|0"></i3dMapping>
+		<i3dMapping id="tipOcclusionUpdateArea1End" node="1&gt;9|0|0"></i3dMapping>
+		<i3dMapping id="propsLinkNode" node="2&gt;"></i3dMapping>
+	</i3dMappings>
+</placeable>

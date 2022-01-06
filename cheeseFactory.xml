@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<placeable type="productionPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+	<storeData>
+		<name>Käserei Erlengrat</name>
+		<functions>
+			<function>$l10n_function_productionPoint</function>
+		</functions>
+		<image></image>
+		<showInStore>false</showInStore>
+		<price>50000</price>
+		<lifetime>1000</lifetime>
+		<rotation>0</rotation>
+		<brand>FABRICPLUS</brand>
+		<species>placeable</species>
+		<category>productionPoints</category>
+		<brush>
+			<type>placeable</type>
+			<category>production</category>
+			<tab>factories</tab>
+		</brush>
+		<vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+		<indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+		<textureMemoryUsage>0</textureMemoryUsage>
+		<instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+		<instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+	</storeData>
+	<base>
+		<filename>$data/placeables/mapAlpine/cheeseFactory/cheeseFactory.i3d</filename>
+		<canBeRenamed>true</canBeRenamed>
+	</base>
+	<placement useRandomYRotation="false" useManualYRotation="true"></placement>
+	<clearAreas></clearAreas>
+	<leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+		<levelAreas></levelAreas>
+	</leveling>
+	<indoorAreas></indoorAreas>
+	<ai>
+		<updateAreas></updateAreas>
+	</ai>
+	<tipOcclusionUpdateAreas>
+		<tipOcclusionUpdateArea startNode="tipOcclusionUpdateAreaStart" endNode="tipOcclusionUpdateAreaEnd"></tipOcclusionUpdateArea>
+	</tipOcclusionUpdateAreas>
+	<infoTrigger triggerNode="infoTrigger"></infoTrigger>
+	<productionPoint>
+		<productions>
+			<production id="butter" name="$l10n_fillType_butter" cyclesPerHour="40" costsPerActiveHour="1">
+				<inputs>
+					<input fillType="MILK" amount="15"></input>
+				</inputs>
+				<outputs>
+					<output fillType="BUTTER" amount="13"></output>
+				</outputs>
+			</production>
+			<production id="cheese" name="$l10n_fillType_cheese" cyclesPerHour="100" costsPerActiveHour="1">
+				<inputs>
+					<input fillType="MILK" amount="3"></input>
+				</inputs>
+				<outputs>
+					<output fillType="CHEESE" amount="2"></output>
+				</outputs>
+			</production>
+		</productions>
+		<storage isExtension="false" fillLevelSyncThreshold="50">
+			<capacity fillType="MILK" capacity="100000"></capacity>
+			<capacity fillType="BUTTER" capacity="10000"></capacity>
+			<capacity fillType="CHEESE" capacity="5000"></capacity>
+		</storage>
+		<sellingStation node="sellingStation" supportsExtension="false">
+			<unloadTrigger exactFillRootNode="unloadTrigger" aiNode="aiNode" fillTypes="MILK"></unloadTrigger>
+		</sellingStation>
+		<palletSpawner node="palletSpawner">
+			<spawnPlaces>
+				<spawnPlace startNode="palletSpawnerArea1Start"></spawnPlace>
+			</spawnPlaces>
+		</palletSpawner>
+		<playerTrigger node="playerTrigger"></playerTrigger>
+		<sounds>
+			<idle template="dairyIdle" linkNode="audioNode"></idle>
+			<active template="dairyWork" linkNode="audioNode"></active>
+		</sounds>
+	</productionPoint>
+	<triggerMarkers>
+		<triggerMarker node="warningStripes_palletSpawnArea" adjustToGround="true"></triggerMarker>
+		<triggerMarker node="playerTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="WRENCH" adjustToGround="true"></triggerMarker>
+		<triggerMarker node="unloadTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="true"></triggerMarker>
+	</triggerMarkers>
+	<hotspots>
+		<hotspot type="PRODUCTION_POINT" linkNode="playerTrigger" teleportNode="teleportNodePlayerTrigger"></hotspot>
+	</hotspots>
+	<i3dMappings>
+		<i3dMapping id="palletSpawner" node="0&gt;0"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea1Start" node="0&gt;0|0"></i3dMapping>
+		<i3dMapping id="palletSpawnerArea1End" node="0&gt;0|0|0"></i3dMapping>
+		<i3dMapping id="warningStripes_palletSpawnArea" node="0&gt;0|1"></i3dMapping>
+		<i3dMapping id="tipOcclusionUpdateAreaStart" node="0&gt;0|3"></i3dMapping>
+		<i3dMapping id="tipOcclusionUpdateAreaEnd" node="0&gt;0|3|0"></i3dMapping>
+		<i3dMapping id="sellingStation" node="0&gt;1"></i3dMapping>
+		<i3dMapping id="unloadTrigger" node="0&gt;1|0"></i3dMapping>
+		<i3dMapping id="unloadTriggerMarker" node="0&gt;1|1"></i3dMapping>
+		<i3dMapping id="aiNode" node="0&gt;1|2"></i3dMapping>
+		<i3dMapping id="playerTrigger" node="0&gt;2"></i3dMapping>
+		<i3dMapping id="playerTriggerMarker" node="0&gt;2|0"></i3dMapping>
+		<i3dMapping id="teleportNodePlayerTrigger" node="0&gt;3"></i3dMapping>
+		<i3dMapping id="teleportNodeUnloadTrigger" node="0&gt;4"></i3dMapping>
+		<i3dMapping id="teleportNodePalletSpawner" node="0&gt;5"></i3dMapping>
+		<i3dMapping id="infoTrigger" node="0&gt;6"></i3dMapping>
+		<i3dMapping id="audioNode" node="0&gt;7"></i3dMapping>
+	</i3dMappings>
+</placeable>
